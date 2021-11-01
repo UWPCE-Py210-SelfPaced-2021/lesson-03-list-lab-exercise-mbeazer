@@ -34,10 +34,11 @@ fruit_list = ['Apples', 'Pears', 'Oranges', 'Peaches']
 # print(fruit_list)
 
 # Series 3
-for fruit in fruit_list:
+"""Iterating through a reversed list so that the index change of the removed elements does not affect the next in sequence"""
+for fruit in reversed(fruit_list):
     like_response = input('Do you like {:s}?: '.format(fruit.lower()))
-    while like_response != ('yes' or 'no'):
-        if like_response == 'no':
-            fruit_list.remove(fruit)
-    else:
+    while like_response != 'yes' and like_response != 'no':
         like_response = input('Please enter "yes" or "no": ')
+    if like_response == 'no':
+        fruit_list.remove(fruit)
+print(fruit_list)
